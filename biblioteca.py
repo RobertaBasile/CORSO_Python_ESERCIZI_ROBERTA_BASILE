@@ -1,7 +1,7 @@
 # Crea una classe biblioteca che permetta di creare un libro e stamparlo 
 # Extra: permetti di creare quanti libri vuole l’utente
 class Libro:
-    def __init__(self, titolo, autore, anno):
+    def __init__(self, titolo, autore, anno, genere):
         self.titolo = titolo
         self.autore = autore
         self.anno = anno
