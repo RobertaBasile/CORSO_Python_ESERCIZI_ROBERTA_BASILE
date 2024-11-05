@@ -36,6 +36,10 @@ class Fabbrica:
                 print(f"{nome}: {quantita}")
         else:
             print("L'inventario è vuoto.")
+    # #@property trasforma il metodo titolare in un getter per l'attributo privato __titolare.
+    # @property
+    # def inventario(self):
+    #     return self.__inventario
 
 def main():
     nome = input("Inserisci il nome del prodotto: ")
@@ -44,7 +48,7 @@ def main():
     tipo = input("Inserisci il tipo di prodotto (Elettronica/Abbigliamento): ")
 
     if tipo.lower() == "elettronica":
-        garanzia = input("Inserisci la durata della garanzia: ")
+        garanzia = int(input("Inserisci la durata in anni della garanzia: "))
         prodotto = Elettronica(nome, costo_produzione, prezzo_vendita, garanzia)
     elif tipo.lower() == "abbigliamento":
         materiale = input("Inserisci il materiale: ")
