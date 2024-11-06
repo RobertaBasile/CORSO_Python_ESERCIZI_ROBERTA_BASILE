@@ -26,6 +26,7 @@
 # Metodi:
 # prenota_posto(numero, fila): trova e prenota un posto specifico.
 # stampa_posti_occupati(): mostra tutti i posti occupati.
+
 class Posto:
     def __init__(self, numero, fila):
         self._numero = numero
@@ -38,7 +39,7 @@ class Posto:
             print(f"Posto {self._fila}{self._numero} prenotato.")
         else:
             print(f"Posto {self._fila}{self._numero} è già occupato.")
-            
+
     def libera(self):
         if self._occupato:
             self._occupato = False
@@ -46,25 +47,100 @@ class Posto:
         else:
             print(f"Posto {self._fila}{self._numero} è già libero.")
             
-    #verranno create altre funzioni per Il momento ho iniziato a scrivere le principali, 
-    # tutte verranno poi richiamate nel main()
-    
-    def main():
+           # @property - Viene usato per indicare che stiamo per definire una proprietà. 
+
+    @property
+    def numero(self):
+        return self._numero
+
+    @property
+    def fila(self):
+        return self._fila
+
+    @property
+    def occupato(self):
+        return self._occupato
+
+class PostoVIP(Posto):
+#     super(): Questa funzione è usata per richiamare il costruttore della
+# superclasse, permettendo alla sottoclasse di estendere o modificare il
+# comportamento della superclasse. super() è usata anche per accedere a metodi
+# della superclasse che sono stati sovrascritti nella sottoclasse.
+
+    def __init__(self, numero, fila, servizi_extra):
+        super().__init__(numero, fila)
+        self.servizi_extra = servizi_extra
+
+    def prenota(self):
+        if not self._occupato:
+            self._occupato = True
+            print(f"Posto VIP {self._fila}{self._numero} prenotato con servizi extra: {self.servizi_extra}.")
+        else:
+            print(f"Posto VIP {self._fila}{self._numero} è già occupato.")
+
+class PostoStandard(Posto):
+    def __init__(self, numero, fila, costo_aggiuntivo):
+        super().__init__(numero, fila)
+        self.costo_aggiuntivo = costo_aggiuntivo
+        
+
+    def prenota(self):
+        if not self._occupato:
+            self._occupato = True
+            print(f"Posto Standard {self._fila}{self._numero} prenotato con costo aggiuntivo: {self.costo_aggiuntivo}€.")
+        else:
+            print(f"Posto Standard {self._fila}{self._numero} è già occupato.")
+
+class Teatro:
+    def __init__(self):
+        self._posti = []
+        
+    def aggiungi_posto(self, posto):
+        self._posti.append(posto)
+
+    def prenota_posto(self, numero, fila):
+        for posto in self._posti:
+            if posto.numero == numero and posto.fila == fila:
+                posto.prenota()
+                return
+        print(f"Posto {fila}{numero} non trovato.")
+
+    def stampa_posti_occupati(self):
+        print("Posti occupati:")
+        for posto in self._posti:
+            if posto.occupato:
+                print(f"Posto {posto.fila}{posto.numero}")
+
+def main():
     teatro = Teatro()
 
-    posto1 = PostoVIP(1, "A", "Accesso al lounge")
-    posto2 = PostoStandard(2, "A", 5)
-    posto3 = PostoStandard(3, "B", 3)
+    while True:
+        tipo = input("Inserisci il tipo di posto (VIP/Standard) o premi INVIO per terminare: ")
+        if tipo == "":
+            break
 
-    teatro.aggiungi_posto(posto1)
-    teatro.aggiungi_posto(posto2)
-    teatro.aggiungi_posto(posto3)
+        numero = int(input("Inserisci il numero del posto: "))
+        fila = input("Inserisci la fila del posto: ")
 
-    teatro.prenota_posto(1, "A")
-    teatro.prenota_posto(2, "A")
-    teatro.prenota_posto(3, "B")
+        if tipo.lower() == "vip":
+            servizi_extra = input("Inserisci i servizi extra: ")
+            posto = PostoVIP(numero, fila, servizi_extra)
+        elif tipo.lower() == "standard":
+            costo_aggiuntivo = float(input("Inserisci il costo aggiuntivo: "))
+            posto = PostoStandard(numero, fila, costo_aggiuntivo)
+        else:
+            print("Tipo di posto non valido.")
+            continue
 
-    teatro.stampa_posti_occupati()
+        teatro.aggiungi_posto(posto)
+        
+        teatro.prenota_posto(int(numero), fila)
+       
+        teatro.stampa_posti_occupati()
 
+        continuare = input("Vuoi prenotare un altro posto? (s/n): ") 
+        if continuare.lower() != 's': 
+            break
 # Avvia il programma
+
 main()
