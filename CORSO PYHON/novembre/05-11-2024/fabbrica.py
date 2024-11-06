@@ -1,3 +1,17 @@
+# In questo aggiornamento del codice, é stato introdotto il concetto di polimorfismo per gestire 
+# in modo flessibile i prodotti di tipo Elettronica e Abbigliamento. 
+# é stato aggiunto un metodo descrivi alla classe base Prodotto, 
+# che fornisce una descrizione generica del prodotto. 
+# Questo metodo è stato poi sovrascritto nelle classi derivate Elettronica e Abbigliamento 
+# per includere informazioni specifiche come la garanzia per i prodotti elettronici e il materiale 
+# per i prodotti di abbigliamento.
+
+# Inoltre, é stata aggiornata la classe Fabbrica per includere un nuovo metodo descrivi_prodotti, 
+# che utilizza il metodo descrivi in modo polimorfico per descrivere tutti i prodotti presenti 
+# nell'inventario. 
+# Questo permette di ottenere descrizioni dettagliate e specifiche per ciascun tipo di prodotto, 
+# migliorando la gestione e la visualizzazione delle informazioni relative ai prodotti.
+
 class Prodotto:
     def __init__(self, nome, costo_produzione, prezzo_vendita):
         self.nome = nome
@@ -8,15 +22,24 @@ class Prodotto:
         profitto = self.prezzo_vendita - self.costo_produzione
         return profitto
 
+    def descrivi(self):
+        return f"Prodotto: {self.nome}, Costo di Produzione: {self.costo_produzione}€, Prezzo di Vendita: {self.prezzo_vendita}€"
+
 class Elettronica(Prodotto):
     def __init__(self, nome, costo_produzione, prezzo_vendita, garanzia):
         super().__init__(nome, costo_produzione, prezzo_vendita)
         self.garanzia = garanzia
 
+    def descrivi(self):
+        return f"Elettronica: {self.nome}, Costo di Produzione: {self.costo_produzione}€, Prezzo di Vendita: {self.prezzo_vendita}€, Garanzia: {self.garanzia} anni"
+
 class Abbigliamento(Prodotto):
     def __init__(self, nome, costo_produzione, prezzo_vendita, materiale):
         super().__init__(nome, costo_produzione, prezzo_vendita)
         self.materiale = materiale
+
+    def descrivi(self):
+        return f"Abbigliamento: {self.nome}, Costo di Produzione: {self.costo_produzione}€, Prezzo di Vendita: {self.prezzo_vendita}€, Materiale: {self.materiale}"
 
 class Fabbrica:
     def __init__(self):
@@ -36,10 +59,16 @@ class Fabbrica:
                 print(f"{nome}: {quantita}")
         else:
             print("L'inventario è vuoto.")
-    # #@property trasforma il metodo titolare in un getter per l'attributo privato __titolare.
-    # @property
-    # def inventario(self):
-    #     return self.__inventario
+
+    def descrivi_prodotti(self):
+        if self.inventario:
+            print("Descrizione dei prodotti in inventario:")
+            for nome, quantita in self.inventario.items():
+                print(f"{nome} (Quantità: {quantita})")
+                for _ in range(quantita):
+                    print(self.inventario[nome].descrivi())
+        else:
+            print("L'inventario è vuoto.")
 
 def main():
     nome = input("Inserisci il nome del prodotto: ")
@@ -64,8 +93,7 @@ def main():
     quantita = int(input("Inserisci la quantità del prodotto da aggiungere all'inventario: "))
     fabbrica.aggiungi_prodotto(prodotto, quantita)
     fabbrica.stampa_inventario()
+    fabbrica.descrivi_prodotti()
 
 # Avvia il programma
-
 main()
-
