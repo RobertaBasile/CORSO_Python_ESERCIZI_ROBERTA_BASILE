@@ -16,9 +16,10 @@
 # Metodi come cucina_piatto(nome_piatto) che specifica la preparazione di un piatto specifico nella linea di produzione
 
 class PersonaleCucina:
-    def __init__(self, nome, eta):
+    def __init__(self, nome, eta, tipo_piatto):
         self.__nome = nome
         self.__eta = eta
+        self.__tipo_piatto = tipo_piatto
 
     def lavora(self):
         print(f"{self.__nome} sta lavorando in cucina.")
@@ -32,10 +33,15 @@ class PersonaleCucina:
     @property
     def eta(self):
         return self.__eta
-    
+
+    # Getter per tipo_piatto
+    @property
+    def tipo_piatto(self):
+        return self.__tipo_piatto
+
 class Chef(PersonaleCucina):
-    def __init__(self, nome, eta, specialita):
-        super().__init__(nome, eta)
+    def __init__(self, nome, eta, specialita, tipo_piatto):
+        super().__init__(nome, eta, tipo_piatto)
         self.__specialita = specialita
 
     def lavora(self):
@@ -50,6 +56,9 @@ class Chef(PersonaleCucina):
         return self.__specialita
 
 class SousChef(PersonaleCucina):
+    def __init__(self, nome, eta, tipo_piatto):
+        super().__init__(nome, eta, tipo_piatto)
+
     def lavora(self):
         print(f"{self.nome}, il sous chef, sta assistendo lo chef e gestendo l'inventario.")
 
@@ -57,27 +66,12 @@ class SousChef(PersonaleCucina):
         print(f"{self.nome} sta gestendo l'inventario della cucina.")
 
 class CuocoLinea(PersonaleCucina):
+    def __init__(self, nome, eta, tipo_piatto):
+        super().__init__(nome, eta, tipo_piatto)
+
     def lavora(self):
         print(f"{self.nome}, il cuoco di linea, sta preparando i piatti.")
 
     def cucina_piatto(self, nome_piatto):
         print(f"{self.nome} sta cucinando il piatto: {nome_piatto}.")
 
-def main():
-    
-    # Il numero rappresenta il tipo di piatto
-    chef = Chef("chef", 54, "cucina italiana")
-    sous_chef = SousChef("s_chef", 60)
-    cuoco_linea = CuocoLinea("c_linea", 58)
-
-    chef.lavora()
-    chef.prepara_menu()
-
-    sous_chef.lavora()
-    sous_chef.gestisci_inventario()
-
-    cuoco_linea.lavora()
-    cuoco_linea.cucina_piatto("Spaghetti alla Carbonara")
-
-# Avvia il programma
-main()
