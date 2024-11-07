@@ -64,6 +64,8 @@ class CuocoLinea(PersonaleCucina):
         print(f"{self.nome} sta cucinando il piatto: {nome_piatto}.")
 
 def main():
+    
+    # Il numero rappresenta il tipo di piatto
     chef = Chef("chef", 54, "cucina italiana")
     sous_chef = SousChef("s_chef", 60)
     cuoco_linea = CuocoLinea("c_linea", 58)
