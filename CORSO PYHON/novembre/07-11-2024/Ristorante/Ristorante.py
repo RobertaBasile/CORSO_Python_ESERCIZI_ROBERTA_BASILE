@@ -49,6 +49,7 @@ class Ristorante:
 
 def main():
     chef = Chef("Chef Mario", 54, "cucina italiana", "Spaghetti alla Carbonara")
-    sous_chef = SousChef
+    sous_chef = SousChef("s_chef", 60,"esempio")
+    cuoco_linea = CuocoLinea("c_linea", 58, "esempio2")
     
 
