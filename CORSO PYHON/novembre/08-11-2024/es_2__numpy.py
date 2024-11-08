@@ -41,6 +41,7 @@ class gestoreArray:
         return self.array[::3]
 
     def modifica_indici_5_10(self):
+        print ("prima ",self.array)
         self.array[5:10] = 99
         return self.array
 
