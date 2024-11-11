@@ -54,6 +54,7 @@ def leggi_alunni(file_path):
     return lista_alunni
     
 while True:
+
     nav = input("Aggiungi aulunno 1, aggiungi voto 2, rimuovi alunno 3, esci 4: ")
     if nav == '1':
         nome = input("Dammi il nome: ")
