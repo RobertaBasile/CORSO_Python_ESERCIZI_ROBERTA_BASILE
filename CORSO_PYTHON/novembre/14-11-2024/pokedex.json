@@ -1,0 +1,18 @@
+{
+    "295": {
+        "numero": 295,
+        "nome": "exploud",
+        "abilita": "soundproof",
+        "xp": 245,
+        "peso": 84.0,
+        "altezza": 1.5
+    },
+    "1011": {
+        "numero": 1011,
+        "nome": "dipplin",
+        "abilita": "supersweet-syrup",
+        "xp": 170,
+        "peso": 9.7,
+        "altezza": 0.4
+    }
+}
