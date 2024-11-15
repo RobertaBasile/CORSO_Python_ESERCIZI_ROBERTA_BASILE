@@ -15,6 +15,23 @@ SELECT country.Name AS CountryName, countrylanguage.Language, countrylanguage.Pe
 FROM country
 JOIN countrylanguage ON country.Code = countrylanguage.CountryCode;
 
-CREATE VIEW ESEMPIO AS 
-SELECT country.Name AS CountryName, countrylanguage.Language, countrylanguage.Percentage 
-FROM country JOIN countrylanguage ON country.Code = countrylanguage.CountryCode;
+CREATE VIEW LinguePerNazione AS
+SELECT country.Name AS CountryName, countrylanguage.Language, countrylanguage.Percentage
+FROM country
+INNER JOIN countrylanguage ON country.Code = countrylanguage.CountryCode;
+-- Create una vista chiamata PopulationByContinent 
+-- che mostri il nome del continente e 
+-- la popolazione totale per ciascun continente.
+CREATE VIEW PopulationByContinent AS
+SELECT Continent, SUM(Population) AS TotalPopulation
+FROM country
+GROUP BY Continent
+
+-- Create una vista chiamata CapitalCities che mostri il nome dello stato, 
+-- il nome della sua capitale e la lingua ufficiale
+CREATE VIEW CapitalCities AS
+SELECT country.Name AS CountryName, city.Name AS CapitalName, countrylanguage.Language
+FROM country
+JOIN city ON country.Capital = city.ID
+JOIN countrylanguage ON country.Code = countrylanguage.CountryCode
+WHERE countrylanguage.IsOfficial = 'T';
