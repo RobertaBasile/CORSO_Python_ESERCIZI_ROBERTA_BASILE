@@ -24,6 +24,20 @@
 # Utilizza la GridSearchCV per ottimizzare i parametri del Random Forest (ad esempio: numero di estimatori e
 # profondità massima dell'albero).
 # Importa le librerie necessarie
+
+'''Il processo inizia importando le librerie necessarie come `numpy`, `pandas`, `matplotlib` e `seaborn` per manipolare e visualizzare i dati, 
+mentre `scikit-learn` fornisce strumenti per il caricamento del dataset Wine, la PCA, la suddivisione dei dati, 
+la classificazione con Random Forest e la valutazione delle prestazioni. 
+Il dataset Wine viene caricato con `load_wine` e diviso in caratteristiche (`X`) e classi (`y`), 
+per poi essere esplorato con statistiche descrittive e visualizzato tramite un grafico a barre per la distribuzione delle classi. 
+Successivamente, viene applicata la PCA per ridurre le dimensioni delle caratteristiche a due componenti principali, 
+rendendo possibile un grafico scatter 2D colorato in base alla classe. I dati sono poi divisi in training set (80%) e test set (20%) usando `train_test_split`. 
+Un modello `RandomForestClassifier` viene addestrato con i dati di training e utilizzato per fare previsioni sul test set. 
+Le prestazioni sono valutate con il report di classificazione, includendo metriche come precisione, recall, F1-score e accuratezza. 
+L'importanza delle feature viene calcolata con `feature_importances_` e visualizzata come un grafico a barre. 
+La matrice di confusione viene generata con `confusion_matrix` e rappresentata graficamente come una heatmap. 
+Infine, `GridSearchCV` è utilizzato per ottimizzare i parametri del modello (ad esempio, numero di alberi e profondità massima), 
+migliorando così le prestazioni del modello finale. Tutti i passi sono accompagnati da visualizzazioni per comprendere meglio i risultati.'''
 from sklearn.datasets import load_wine
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.preprocessing import StandardScaler
@@ -100,4 +114,18 @@ plt.ylabel('Vero')
 plt.title('Matrice di confusione')
 plt.show()
 
-# mi manca la parte di ottimizzazione dell'algoritmo con GridSearchCV
+# Definizione dei parametri da ottimizzare
+param_grid = {
+    'n_estimators': [50, 100, 200],
+    'max_depth': [None, 10, 20, 30]
+}
+
+# Ottimizzazione
+grid_search = GridSearchCV(RandomForestClassifier(random_state=42), param_grid, cv=5, scoring='accuracy')
+grid_search.fit(X_train, y_train)
+
+# Migliori parametri e performance
+print('Migliori parametri:', grid_search.best_params_)
+best_model = grid_search.best_estimator_
+y_pred_optimized = best_model.predict(X_test)
+print('Accuracy con modello ottimizzato:', accuracy_score(y_test, y_pred_optimized))
