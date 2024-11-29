@@ -18,3 +18,47 @@ Per esempio:
 class Nomeclasse():
 def __init__(self, ValoreAttributo):
 self.Attributo = ValoreAttributo
+
+6.Cos'è e quali sono le le fasi del ML (6)
+
+Il Machine Learning è un ramo
+dell'intelligenza artificiale che
+permette ai computer di imparare dai
+dati e migliorare autonomamente
+attraverso l'esperienza.
+
+
+
+Il suo obbiettivo è Automatizzare
+processi decisionali basandosi su
+pattern e inferenze piuttosto che su
+istruzioni esplicite.
+Fasi:
+1.
+Caricamento e Preparazione dei Dati:
+Utilizza dataset forniti o carica i tuoi dati.
+Preprocessa i dati per pulirli e
+normalizzarli, rendendoli adatti all'analisi.
+2.
+Divisione del Dataset:
+Suddivide i dati in set di training e test per
+costruire e valutare il modello.
+3.
+Selezione del Modello:
+Scegli un algoritmo appropriato in base al
+problema (es. regressione, classificazione,
+clustering).
+4. 
+Addestramento del Modello:
+Utilizza il metodo .fit() per addestrare il
+modello sui dati di training.
+5.
+Predizione:
+Applica il modello addestrato ai dati di test o
+nuovi dati usando .predict().
+6. 
+Valutazione del Modello:
+Valuta le prestazioni del modello con metriche
+appropriate (es. accuratezza, errore quadratico
+medio).
+
