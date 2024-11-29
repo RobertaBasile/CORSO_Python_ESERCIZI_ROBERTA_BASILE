@@ -1,0 +1,20 @@
+3.Quale il meccanismo delle classi e degli oggetti del OOP? come funziona? che pezzi DEVE avere la classe?
+
+In Python, le classi sono fondamentali per la programmazione orientata agli oggetti (OOP).
+Le classi consentono di definire strutture che raggruppano dati (attributi) e comportamenti (metodi) correlati in un unico oggetto di un determinato tipo.
+
+Le classi sono un'astrazione dei concetti del mondo reale e una classe è un modello per la creazione di oggetti.
+Un oggetto è un'istanza di una classe, cioè una copia univoca della classe che ha le sue proprietà uniche.
+Le classi sono definite usando la parola chiave class, seguita dal nome della classe.
+Le classi possono contenere metodi e attributi.
+
+Gli attributi sono variabili associate a una classe, rappresentano le proprietà di un oggetto e sono condivisi tra tutte le istanze della classe.
+I metodi sono funzioni associate a una classe e rappresentano il comportamento di un oggetto.
+
+Le classi, contengono anche un metodo costruttore, così chiamato perché definisce le caratteristiche principali dell'oggetto.
+
+Per esempio:
+
+class Nomeclasse():
+def __init__(self, ValoreAttributo):
+self.Attributo = ValoreAttributo
