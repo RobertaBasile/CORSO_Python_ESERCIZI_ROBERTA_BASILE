@@ -26,9 +26,6 @@ dell'intelligenza artificiale che
 permette ai computer di imparare dai
 dati e migliorare autonomamente
 attraverso l'esperienza.
-
-
-
 Il suo obbiettivo è Automatizzare
 processi decisionali basandosi su
 pattern e inferenze piuttosto che su
@@ -61,4 +58,57 @@ Valutazione del Modello:
 Valuta le prestazioni del modello con metriche
 appropriate (es. accuratezza, errore quadratico
 medio).
+
+9.Cos'è una JOIN? di che tipo ne esistono?
+È una clausola che viene utilizzata per combinare righe da due o più tabelle, in
+ base a una colonna correlata tra di loro.
+Ci sono 4 tipi di join:
+1. (INNER) JOIN: restituisce record con valori in comune
+2. LEFT (OUTER) JOIN: restituisce tutti i record della tabella di sinistra e i
+record con valori in comune
+3.RIGHT (OUTER) JOIN: restituisce tutti i record della tabella di destra e i
+ record con valori in comune
+4. FULL (OUTER) JOIN: restituisce tutti i record quando è presente una
+ corrispondenza in uno dei due a sinistra o a destra
+
+Machine Learning (Apprendimento Automatico) e Deep Learning (Apprendimento
+Profondo) sono entrambi sottocampi dell'intelligenza artificiale, ma presentano
+differenze:
+13. Quali sono le principali differenze tra ML e DL?
+Machine Learning
+
+Definizione: Disciplina che permette ai computer di apprendere dai dati senza
+essere esplicitamente programmati per ogni compito.
+Tecniche: Include algoritmi come regressione lineare, alberi decisionali,
+SVM, k-NN, clustering, ecc.
+Feature Engineering: Richiede spesso l'estrazione manuale di caratteristiche
+dai dati per alimentare gli algoritmi di apprendimento.
+
+Deep Learning
+
+Definizione: Sottocampo del machine learning che utilizza reti neurali
+artificiali profonde per modellare e comprendere dati complessi.
+Reti Neurali Profonde: Composte da molti strati (layers) che permettono di
+apprendere rappresentazioni gerarchiche dei dati.
+Feature Learning Automatizzato: Le reti neurali possono estrarre
+automaticamente le caratteristiche rilevanti dai dati grezzi.
+
+16. 16.Cosa fanno è quali sono le fasi che vengono specializzate nel DL (3)
+
+Nel deep learning (DL), ci sono diverse fasi specializzate che sono cruciali per costruire e addestrare modelli di reti neurali. Ecco tre fasi principali:
+
+1. **Preprocessing dei Dati**:
+   - **Pulizia dei Dati**: Rimuovere o correggere dati mancanti o errati.
+   - **Normalizzazione**: Scalare i dati per garantire che tutte le caratteristiche abbiano lo stesso peso.
+   - **Suddivisione dei Dati**: Dividere i dati in set di addestramento, validazione e test.
+
+2. **Costruzione e Addestramento del Modello**:
+   - **Definizione dell'Architettura**: Scegliere il tipo di rete neurale (ad esempio, CNN, RNN) e definire il numero di strati e neuroni.
+   - **Compilazione del Modello**: Specificare la funzione di perdita e l'ottimizzatore.
+   - **Addestramento**: Utilizzare i dati di addestramento per ottimizzare i pesi del modello attraverso l'algoritmo di backpropagation.
+
+3. **Valutazione e Ottimizzazione**:
+   - **Valutazione delle Prestazioni**: Utilizzare i dati di test per valutare l'accuratezza, la precisione, il richiamo e altre metriche.
+   - **Ottimizzazione**: Regolare iperparametri come il tasso di apprendimento, il numero di epoche e la dimensione del batch per migliorare le prestazioni.
+   - **Visualizzazione dei Risultati**: Creare grafici come la matrice di confusione per analizzare le prestazioni del modello.
 
