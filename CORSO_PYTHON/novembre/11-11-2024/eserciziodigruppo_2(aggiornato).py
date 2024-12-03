@@ -75,7 +75,7 @@ while True:
         elif nav == '2':
             lista_alunni = leggi_alunni(file_path)
             stampa_lista(lista_alunni)
-            index = int(input("Dammi il l'indice: "))
+            index = int(input("Dammi l'indice: "))
             alunno = lista_alunni[index-1]
             new_voti = aggiungi_voti()
             alunno[2].extend(new_voti)
@@ -92,7 +92,7 @@ while True:
         elif nav == '5':
             lista_alunni = leggi_alunni(file_path)
             stampa_lista(lista_alunni)
-            index = int(input("Dammi il l'indice: "))
+            index = int(input("Dammi l'indice: "))
             print("Voti disponibili dell'alunno: ",lista_alunni[index-1][2])
             index_voto = int(input("Dammi il l'indice del voto: "))
             lista_alunni[index-1][2].pop(index_voto-1)
@@ -102,7 +102,7 @@ while True:
         elif nav == '6':
             lista_alunni = leggi_alunni(file_path)
             stampa_lista(lista_alunni)
-            index = int(input("Dammi il l'indice: "))
+            index = int(input("Dammi l'indice: "))
             print("Vuoi aggiornare nome o cognome?: ",lista_alunni[index-1])
             index_aggiorna = int(input("1 per nome, 2 per cognome: "))
             lista_alunni[index-1][index_aggiorna-1] = input("Inserisci il nuovo valore: ")
