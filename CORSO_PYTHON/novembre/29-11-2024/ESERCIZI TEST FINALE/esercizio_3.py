@@ -32,7 +32,10 @@ data_normalized = (data_normalized * 100).astype(int)
 #    - `while len(set(row)) != len(row):`: Questo ciclo `while` verifica se tutti i valori in una riga sono unici. La funzione `set()` converte la riga in un insieme (che contiene solo valori unici). Se la lunghezza dell'insieme (`len(set(row))`) è diversa dalla lunghezza della riga (`len(row)`), significa che ci sono valori duplicati nella riga.
 
 # 3. **Generazione di nuovi valori**:
-#    - `row[:] = np.random.choice(np.arange(1, 101), size=row.shape, replace=False)`: Se ci sono valori duplicati, questa riga di codice genera una nuova riga di valori casuali unici tra 1 e 100 (inclusi) e sostituisce la riga corrente con questi nuovi valori. La funzione `np.random.choice()` viene utilizzata per generare i valori casuali, con l'argomento `replace=False` che garantisce che i valori siano unici.
+#    - `row[:] = np.random.choice(np.arange(1, 101), size=row.shape, replace=False)`: 
+# Se ci sono valori duplicati, questa riga di codice genera una nuova riga di valori casuali unici tra 1 e 100 (inclusi) 
+# e sostituisce la riga corrente con questi nuovi valori. La funzione `np.random.choice()` 
+# viene utilizzata per generare i valori casuali, con l'argomento `replace=False` che garantisce che i valori siano unici.
 
 
 #------------------------------

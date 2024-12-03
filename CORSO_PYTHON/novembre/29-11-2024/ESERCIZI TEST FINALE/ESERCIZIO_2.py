@@ -39,6 +39,7 @@ knn.fit(X_train, y_train)
 # Valutazione del modello
 y_pred = knn.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
+# macro: Calcola la metrica per ciascuna classe e poi fa la media aritmetica. Questo tratta tutte le classi in modo uguale.
 precision = precision_score(y_test, y_pred, average='macro')
 recall = recall_score(y_test, y_pred, average='macro')
 conf_matrix = confusion_matrix(y_test, y_pred)
